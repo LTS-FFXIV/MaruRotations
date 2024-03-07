@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	  <TargetFramework>net7.0-windows</TargetFramework>
-	  <ImplicitUsings>enable</ImplicitUsings>
-	  <PlatformTarget>x64</PlatformTarget>
-	  <DalamudLibPath>$(AppData)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
-	  <Platforms>AnyCPU</Platforms>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Authors>MarushyTha</Authors>
+		<Version>1.0.0.0</Version>
+		<PlatformTarget>x64</PlatformTarget>
+		<Platforms>x64</Platforms>
+
+		<DalamudLibPath>$(AppData)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<Reference Include="Dalamud">
@@ -37,22 +41,38 @@
 			<HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+	</ItemGroup>
 
+	<ItemGroup>
+		<Using Include="MaruRotations.RotationInfo">
+			<Static>True</Static>
+		</Using>
 		<Using Include="Dalamud.Game.ClientState.JobGauge.Enums" />
+		<Using Include="Dalamud.Game.ClientState.Objects.Types" />
+		<Using Include="Dalamud.Interface" />
+		<Using Include="RotationSolver.Basic.Rotations.Basic" />
+		<Using Include="ImGuiNET" />
+		<Using Include="Newtonsoft.Json" />
 		<Using Include="RotationSolver.Basic" />
 		<Using Include="RotationSolver.Basic.Actions" />
 		<Using Include="RotationSolver.Basic.Attributes" />
 		<Using Include="RotationSolver.Basic.Configuration.RotationConfig" />
 		<Using Include="RotationSolver.Basic.Data" />
 		<Using Include="RotationSolver.Basic.Helpers" />
-		<Using Include="RotationSolver.Basic.Rotations.Basic" />
+		<Using Include="RotationSolver.Basic.Rotations" />
+		<Using Include="System.Numerics" />
+		<Using Include="System.Reflection" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Healer\" />
 	  <Folder Include="Magical\" />
 	  <Folder Include="Melee\" />
 	  <Folder Include="Ranged\" />
 	  <Folder Include="Tank\" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="RotationSolver\RotationSolver.Basic\RotationSolver.Basic.csproj" />
+	</ItemGroup>
+
 </Project>
