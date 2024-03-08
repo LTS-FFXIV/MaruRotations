@@ -71,8 +71,4 @@
 	  <Folder Include="Tank\" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="RotationSolver\RotationSolver.Basic\RotationSolver.Basic.csproj" />
-	</ItemGroup>
-
 </Project>
